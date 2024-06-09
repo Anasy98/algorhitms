@@ -1,9 +1,9 @@
 import numpy as np
 import math
-import copy
 from pprint import pprint
 import argparse
-import sys
+from scipy.stats import pearsonr
+import matplotlib.pyplot as plt
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Generate a PSSM from peptide data.')
@@ -60,7 +60,6 @@ def main():
         for j, letter_2 in enumerate(alphabet):
             blosum62[letter_1][letter_2] = _blosum62[i, j]
 
-    # Load peptides, extracting only the sequences
     peptides_data = np.loadtxt(peptides_file, dtype=str)
     peptides = [row[0] for row in peptides_data]
 
@@ -148,7 +147,30 @@ def main():
 
     to_psi_blast(w_matrix)
 
+    # Scoring peptides against the generated PSSM and calculating PCC
+    evaluation_file = peptides_file  # Using the same file for evaluation
+    evaluation_data = np.loadtxt(evaluation_file, dtype=str)
+    evaluation_peptides = evaluation_data[:, 0]
+    evaluation_targets = evaluation_data[:, 1].astype(float)
+
+    def score_peptide(peptide, matrix):
+        acum = 0
+        for i in range(0, len(peptide)):
+            acum += matrix[i][peptide[i]]
+        return acum
+
+    evaluation_predictions = []
+    for evaluation_peptide in evaluation_peptides:
+        evaluation_predictions.append(score_peptide(evaluation_peptide, w_matrix))
+
+    pcc = pearsonr(evaluation_targets, evaluation_predictions)
+    print(f"PCC: {pcc[0]:.3f}")
+
+    plt.scatter(evaluation_targets, evaluation_predictions)
+    plt.xlabel("Actual Targets")
+    plt.ylabel("Predicted Scores")
+    plt.title("Scatter plot of Actual vs Predicted Scores")
+    plt.show()
+
 if __name__ == "__main__":
     main()
-
-#python weight_matrix.py -b 50.0 -w -f /Users/anaselyoussef/Desktop/algo/data/PSSM/A0201.eval
