@@ -4,9 +4,13 @@ from argparse import ArgumentParser
 parser = ArgumentParser(description="A very first Python program")
 parser.add_argument("-t", action="store", dest="threshold", type=float, default=0.5, help="Target value filtering threshold (default: 0.5)")
 parser.add_argument("-f", action="store", dest="peptides_targets_file", type=str, help="Peptides-Targets file")
+parser.add_argument("-l", action="store", dest="peplen_threshold", type=int, default=9,help="Peptide length (default: 9)")
+
 args = parser.parse_args()
 threshold = args.threshold
 peptides_targets_file = args.peptides_targets_file
+peplen_threshold = args.peplen_threshold
+
 
 data_dir = "/Users/anaselyoussef/Desktop/algo/data/"
 
@@ -27,7 +31,7 @@ targets_9mer = []
 
 for i in range(0, len(peptides)):
     
-    if len(peptides[i]) == 9:
+    if len(peptides[i]) == peplen_threshold:
         
         peptides_9mer.append(peptides[i])
         
@@ -70,4 +74,4 @@ for i in range(0, len(peptides_9mer_t)):
     
     print(peptides_9mer_t[i], targets_9mer_t[i])
 
-# python python_intro.py -t 0.5 -f /Users/anaselyoussef/Desktop/algo/data/Intro/test.dat
+# python python_intro.py -t 0.5 -f /Users/anaselyoussef/Desktop/algo/data/Intro/test.dat -l 9
