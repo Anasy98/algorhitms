@@ -1,0 +1,190 @@
+NETWORK SUMMARY
+---------------
+Input Layer shape: (1, 180)
+Hidden Layer shape: (181, 5)
+Output layer shape: (6, 1)
+Total parameters: 911
+
+# Dump network 0 Best MSE 0.029074627692062864 PCC 0.06594255621964197
+[0, 100] Train Error: 0.0434 | Train Perf: -0.0497 | Eval Error: 0.0291 | Eval Perf: 0.0659
+# Dump network 1 Best MSE 0.02560241179982887 PCC 0.16777473718694474
+[1, 100] Train Error: 0.0294 | Train Perf: -0.0325 | Eval Error: 0.0256 | Eval Perf: 0.1678
+# Dump network 2 Best MSE 0.02462632242451615 PCC 0.2420973550304774
+[2, 100] Train Error: 0.0275 | Train Perf: 0.2377 | Eval Error: 0.0246 | Eval Perf: 0.2421
+# Dump network 3 Best MSE 0.024314729018992044 PCC 0.29341204785996866
+[3, 100] Train Error: 0.0269 | Train Perf: 0.3604 | Eval Error: 0.0243 | Eval Perf: 0.2934
+# Dump network 4 Best MSE 0.024067245095579608 PCC 0.3294988342823888
+[4, 100] Train Error: 0.0264 | Train Perf: 0.4398 | Eval Error: 0.0241 | Eval Perf: 0.3295
+# Dump network 5 Best MSE 0.023858827045667975 PCC 0.3541549320831945
+[5, 100] Train Error: 0.0259 | Train Perf: 0.5066 | Eval Error: 0.0239 | Eval Perf: 0.3542
+# Dump network 6 Best MSE 0.023645623633414603 PCC 0.3723220761243501
+[6, 100] Train Error: 0.0254 | Train Perf: 0.5519 | Eval Error: 0.0236 | Eval Perf: 0.3723
+# Dump network 7 Best MSE 0.023413771981103743 PCC 0.3877426201972
+[7, 100] Train Error: 0.0249 | Train Perf: 0.5693 | Eval Error: 0.0234 | Eval Perf: 0.3877
+# Dump network 8 Best MSE 0.023188785045645397 PCC 0.3999869070889301
+[8, 100] Train Error: 0.0244 | Train Perf: 0.5863 | Eval Error: 0.0232 | Eval Perf: 0.4
+# Dump network 9 Best MSE 0.02296070702380305 PCC 0.41053390171523085
+[9, 100] Train Error: 0.0239 | Train Perf: 0.6019 | Eval Error: 0.023 | Eval Perf: 0.4105
+# Dump network 10 Best MSE 0.022719884188891166 PCC 0.4190498356598802
+[10, 100] Train Error: 0.0234 | Train Perf: 0.621 | Eval Error: 0.0227 | Eval Perf: 0.419
+# Dump network 11 Best MSE 0.022482248741503598 PCC 0.42792447529385164
+[11, 100] Train Error: 0.0229 | Train Perf: 0.6295 | Eval Error: 0.0225 | Eval Perf: 0.4279
+# Dump network 12 Best MSE 0.022252067716192803 PCC 0.43659736475160343
+[12, 100] Train Error: 0.0224 | Train Perf: 0.6382 | Eval Error: 0.0223 | Eval Perf: 0.4366
+# Dump network 13 Best MSE 0.02202490627106628 PCC 0.4449742751904197
+[13, 100] Train Error: 0.0219 | Train Perf: 0.6451 | Eval Error: 0.022 | Eval Perf: 0.445
+# Dump network 14 Best MSE 0.021807971271730314 PCC 0.45358240025797447
+[14, 100] Train Error: 0.0214 | Train Perf: 0.651 | Eval Error: 0.0218 | Eval Perf: 0.4536
+# Dump network 15 Best MSE 0.021583759482715598 PCC 0.46172113521101193
+[15, 100] Train Error: 0.0209 | Train Perf: 0.6618 | Eval Error: 0.0216 | Eval Perf: 0.4617
+# Dump network 16 Best MSE 0.021335884307279618 PCC 0.46888980336101366
+[16, 100] Train Error: 0.0204 | Train Perf: 0.6698 | Eval Error: 0.0213 | Eval Perf: 0.4689
+# Dump network 17 Best MSE 0.02111890401577916 PCC 0.47716032235948513
+[17, 100] Train Error: 0.0199 | Train Perf: 0.6717 | Eval Error: 0.0211 | Eval Perf: 0.4772
+# Dump network 18 Best MSE 0.020878832918567323 PCC 0.48474633490308394
+[18, 100] Train Error: 0.0195 | Train Perf: 0.6825 | Eval Error: 0.0209 | Eval Perf: 0.4847
+# Dump network 19 Best MSE 0.020682184755481118 PCC 0.49308317057301077
+[19, 100] Train Error: 0.019 | Train Perf: 0.6843 | Eval Error: 0.0207 | Eval Perf: 0.4931
+# Dump network 20 Best MSE 0.02042525342063044 PCC 0.5001616975842574
+[20, 100] Train Error: 0.0186 | Train Perf: 0.6951 | Eval Error: 0.0204 | Eval Perf: 0.5002
+# Dump network 21 Best MSE 0.02024079120042291 PCC 0.5089244449992579
+[21, 100] Train Error: 0.0181 | Train Perf: 0.6967 | Eval Error: 0.0202 | Eval Perf: 0.5089
+# Dump network 22 Best MSE 0.020062502798763534 PCC 0.5171404283464366
+[22, 100] Train Error: 0.0177 | Train Perf: 0.7022 | Eval Error: 0.0201 | Eval Perf: 0.5171
+# Dump network 23 Best MSE 0.01982121852840375 PCC 0.5242043103758969
+[23, 100] Train Error: 0.0173 | Train Perf: 0.7132 | Eval Error: 0.0198 | Eval Perf: 0.5242
+# Dump network 24 Best MSE 0.019637279960578794 PCC 0.5319063404447125
+[24, 100] Train Error: 0.0169 | Train Perf: 0.7169 | Eval Error: 0.0196 | Eval Perf: 0.5319
+# Dump network 25 Best MSE 0.019399065829541765 PCC 0.5386801309089315
+[25, 100] Train Error: 0.0165 | Train Perf: 0.7266 | Eval Error: 0.0194 | Eval Perf: 0.5387
+# Dump network 26 Best MSE 0.019217426101806795 PCC 0.5464357257817211
+[26, 100] Train Error: 0.0161 | Train Perf: 0.7302 | Eval Error: 0.0192 | Eval Perf: 0.5464
+# Dump network 27 Best MSE 0.0191005108621697 PCC 0.5555451913140556
+[27, 100] Train Error: 0.0157 | Train Perf: 0.7327 | Eval Error: 0.0191 | Eval Perf: 0.5555
+# Dump network 28 Best MSE 0.018925704183547495 PCC 0.5625846587205814
+[28, 100] Train Error: 0.0154 | Train Perf: 0.7413 | Eval Error: 0.0189 | Eval Perf: 0.5626
+# Dump network 29 Best MSE 0.018743794457943767 PCC 0.5696839524793378
+[29, 100] Train Error: 0.015 | Train Perf: 0.7476 | Eval Error: 0.0187 | Eval Perf: 0.5697
+# Dump network 30 Best MSE 0.018598799916551213 PCC 0.5770093388253087
+[30, 100] Train Error: 0.0146 | Train Perf: 0.751 | Eval Error: 0.0186 | Eval Perf: 0.577
+# Dump network 31 Best MSE 0.018505488414877407 PCC 0.5847966879854685
+[31, 100] Train Error: 0.0143 | Train Perf: 0.7556 | Eval Error: 0.0185 | Eval Perf: 0.5848
+# Dump network 32 Best MSE 0.0182821160181522 PCC 0.590240724164697
+[32, 100] Train Error: 0.014 | Train Perf: 0.7652 | Eval Error: 0.0183 | Eval Perf: 0.5902
+# Dump network 33 Best MSE 0.018158502405110456 PCC 0.5971954526757316
+[33, 100] Train Error: 0.0136 | Train Perf: 0.7688 | Eval Error: 0.0182 | Eval Perf: 0.5972
+# Dump network 34 Best MSE 0.01812203325407498 PCC 0.6051093117312595
+[34, 100] Train Error: 0.0133 | Train Perf: 0.773 | Eval Error: 0.0181 | Eval Perf: 0.6051
+# Dump network 35 Best MSE 0.017966441584134882 PCC 0.6106091030694378
+[35, 100] Train Error: 0.013 | Train Perf: 0.7801 | Eval Error: 0.018 | Eval Perf: 0.6106
+# Dump network 36 Best MSE 0.01766503361026119 PCC 0.6142680381852408
+[36, 100] Train Error: 0.0127 | Train Perf: 0.7896 | Eval Error: 0.0177 | Eval Perf: 0.6143
+# Dump network 37 Best MSE 0.01765103763660216 PCC 0.6220041164388881
+[37, 100] Train Error: 0.0124 | Train Perf: 0.7871 | Eval Error: 0.0177 | Eval Perf: 0.622
+# Dump network 38 Best MSE 0.017406615885052445 PCC 0.6258714599285344
+[38, 100] Train Error: 0.0122 | Train Perf: 0.7971 | Eval Error: 0.0174 | Eval Perf: 0.6259
+# Dump network 39 Best MSE 0.017278162588178707 PCC 0.6310688340501683
+[39, 100] Train Error: 0.0119 | Train Perf: 0.7993 | Eval Error: 0.0173 | Eval Perf: 0.6311
+# Dump network 40 Best MSE 0.017092081218546936 PCC 0.6356844586929348
+[40, 100] Train Error: 0.0116 | Train Perf: 0.8048 | Eval Error: 0.0171 | Eval Perf: 0.6357
+[41, 100] Train Error: 0.0114 | Train Perf: 0.8054 | Eval Error: 0.0171 | Eval Perf: 0.6426
+# Dump network 42 Best MSE 0.01699880381088559 PCC 0.6474590135158494
+[42, 100] Train Error: 0.0111 | Train Perf: 0.8118 | Eval Error: 0.017 | Eval Perf: 0.6475
+# Dump network 43 Best MSE 0.016840326805349238 PCC 0.6519411856213535
+[43, 100] Train Error: 0.0109 | Train Perf: 0.8167 | Eval Error: 0.0168 | Eval Perf: 0.6519
+# Dump network 44 Best MSE 0.01678225914083943 PCC 0.6570149813218524
+[44, 100] Train Error: 0.0107 | Train Perf: 0.8189 | Eval Error: 0.0168 | Eval Perf: 0.657
+# Dump network 45 Best MSE 0.016717806506658318 PCC 0.6622364105178664
+[45, 100] Train Error: 0.0105 | Train Perf: 0.8228 | Eval Error: 0.0167 | Eval Perf: 0.6622
+# Dump network 46 Best MSE 0.01658218330454286 PCC 0.6664014321026869
+[46, 100] Train Error: 0.0102 | Train Perf: 0.8279 | Eval Error: 0.0166 | Eval Perf: 0.6664
+# Dump network 47 Best MSE 0.01648698990195986 PCC 0.671249983217162
+[47, 100] Train Error: 0.01 | Train Perf: 0.8306 | Eval Error: 0.0165 | Eval Perf: 0.6712
+# Dump network 48 Best MSE 0.01626938542757661 PCC 0.674376995666898
+[48, 100] Train Error: 0.0098 | Train Perf: 0.8362 | Eval Error: 0.0163 | Eval Perf: 0.6744
+# Dump network 49 Best MSE 0.01620529863208508 PCC 0.6787959706153721
+[49, 100] Train Error: 0.0096 | Train Perf: 0.8371 | Eval Error: 0.0162 | Eval Perf: 0.6788
+# Dump network 50 Best MSE 0.0161565665659033 PCC 0.6841982371754011
+[50, 100] Train Error: 0.0094 | Train Perf: 0.8395 | Eval Error: 0.0162 | Eval Perf: 0.6842
+# Dump network 51 Best MSE 0.01614335157212981 PCC 0.6894200410670622
+[51, 100] Train Error: 0.0093 | Train Perf: 0.8427 | Eval Error: 0.0161 | Eval Perf: 0.6894
+# Dump network 52 Best MSE 0.01607887856318711 PCC 0.6938282315228655
+[52, 100] Train Error: 0.0091 | Train Perf: 0.8462 | Eval Error: 0.0161 | Eval Perf: 0.6938
+# Dump network 53 Best MSE 0.015992706514505507 PCC 0.6980601162453055
+[53, 100] Train Error: 0.0089 | Train Perf: 0.849 | Eval Error: 0.016 | Eval Perf: 0.6981
+# Dump network 54 Best MSE 0.015840000183862748 PCC 0.7017283312469446
+[54, 100] Train Error: 0.0087 | Train Perf: 0.8531 | Eval Error: 0.0158 | Eval Perf: 0.7017
+# Dump network 55 Best MSE 0.015807375837954135 PCC 0.7065633911921836
+[55, 100] Train Error: 0.0086 | Train Perf: 0.8544 | Eval Error: 0.0158 | Eval Perf: 0.7066
+# Dump network 56 Best MSE 0.015661365636579837 PCC 0.7097438477856006
+[56, 100] Train Error: 0.0084 | Train Perf: 0.8586 | Eval Error: 0.0157 | Eval Perf: 0.7097
+# Dump network 57 Best MSE 0.015460889068983096 PCC 0.7124015354042929
+[57, 100] Train Error: 0.0083 | Train Perf: 0.862 | Eval Error: 0.0155 | Eval Perf: 0.7124
+# Dump network 58 Best MSE 0.015356691689642687 PCC 0.7161264493234706
+[58, 100] Train Error: 0.0081 | Train Perf: 0.8633 | Eval Error: 0.0154 | Eval Perf: 0.7161
+[59, 100] Train Error: 0.008 | Train Perf: 0.8641 | Eval Error: 0.0154 | Eval Perf: 0.7218
+# Dump network 60 Best MSE 0.015256071088255843 PCC 0.7248984553305821
+[60, 100] Train Error: 0.0078 | Train Perf: 0.8692 | Eval Error: 0.0153 | Eval Perf: 0.7249
+# Dump network 61 Best MSE 0.01522671401490962 PCC 0.7288000620117084
+[61, 100] Train Error: 0.0077 | Train Perf: 0.8703 | Eval Error: 0.0152 | Eval Perf: 0.7288
+# Dump network 62 Best MSE 0.015163183264609623 PCC 0.7330335624647154
+[62, 100] Train Error: 0.0076 | Train Perf: 0.8722 | Eval Error: 0.0152 | Eval Perf: 0.733
+# Dump network 63 Best MSE 0.015094109015398215 PCC 0.7367178219825303
+[63, 100] Train Error: 0.0074 | Train Perf: 0.8749 | Eval Error: 0.0151 | Eval Perf: 0.7367
+[64, 100] Train Error: 0.0073 | Train Perf: 0.8757 | Eval Error: 0.0152 | Eval Perf: 0.7412
+# Dump network 65 Best MSE 0.014959075601943294 PCC 0.7436230967568739
+[65, 100] Train Error: 0.0072 | Train Perf: 0.8808 | Eval Error: 0.015 | Eval Perf: 0.7436
+# Dump network 66 Best MSE 0.014928715084685885 PCC 0.7471015619445553
+[66, 100] Train Error: 0.0071 | Train Perf: 0.8816 | Eval Error: 0.0149 | Eval Perf: 0.7471
+# Dump network 67 Best MSE 0.014713408634362525 PCC 0.74899612626608
+[67, 100] Train Error: 0.0069 | Train Perf: 0.8854 | Eval Error: 0.0147 | Eval Perf: 0.749
+# Dump network 68 Best MSE 0.014701797192863575 PCC 0.7529290314677074
+[68, 100] Train Error: 0.0069 | Train Perf: 0.8849 | Eval Error: 0.0147 | Eval Perf: 0.7529
+# Dump network 69 Best MSE 0.01469274518865647 PCC 0.7564286135353685
+[69, 100] Train Error: 0.0067 | Train Perf: 0.887 | Eval Error: 0.0147 | Eval Perf: 0.7564
+[70, 100] Train Error: 0.0066 | Train Perf: 0.8886 | Eval Error: 0.0147 | Eval Perf: 0.7601
+# Dump network 71 Best MSE 0.014633852293429511 PCC 0.763088135277053
+[71, 100] Train Error: 0.0065 | Train Perf: 0.8912 | Eval Error: 0.0146 | Eval Perf: 0.7631
+# Dump network 72 Best MSE 0.014529217455886211 PCC 0.7657618904451383
+[72, 100] Train Error: 0.0064 | Train Perf: 0.893 | Eval Error: 0.0145 | Eval Perf: 0.7658
+[73, 100] Train Error: 0.0063 | Train Perf: 0.8936 | Eval Error: 0.0146 | Eval Perf: 0.7694
+[74, 100] Train Error: 0.0062 | Train Perf: 0.8962 | Eval Error: 0.0146 | Eval Perf: 0.7723
+# Dump network 75 Best MSE 0.014183698698418791 PCC 0.7730581465760655
+[75, 100] Train Error: 0.0061 | Train Perf: 0.9011 | Eval Error: 0.0142 | Eval Perf: 0.7731
+[76, 100] Train Error: 0.006 | Train Perf: 0.8989 | Eval Error: 0.0142 | Eval Perf: 0.7767
+# Dump network 77 Best MSE 0.014070775721491919 PCC 0.7783664813432736
+[77, 100] Train Error: 0.0059 | Train Perf: 0.9022 | Eval Error: 0.0141 | Eval Perf: 0.7784
+# Dump network 78 Best MSE 0.01406441375255986 PCC 0.781341084437451
+[78, 100] Train Error: 0.0059 | Train Perf: 0.9023 | Eval Error: 0.0141 | Eval Perf: 0.7813
+# Dump network 79 Best MSE 0.013904934814525132 PCC 0.7831342787102726
+[79, 100] Train Error: 0.0058 | Train Perf: 0.905 | Eval Error: 0.0139 | Eval Perf: 0.7831
+# Dump network 80 Best MSE 0.013729990915020536 PCC 0.7847203672976761
+[80, 100] Train Error: 0.0057 | Train Perf: 0.9067 | Eval Error: 0.0137 | Eval Perf: 0.7847
+[81, 100] Train Error: 0.0056 | Train Perf: 0.906 | Eval Error: 0.0138 | Eval Perf: 0.7879
+[82, 100] Train Error: 0.0055 | Train Perf: 0.908 | Eval Error: 0.0138 | Eval Perf: 0.7905
+[83, 100] Train Error: 0.0055 | Train Perf: 0.9089 | Eval Error: 0.0138 | Eval Perf: 0.7932
+[84, 100] Train Error: 0.0054 | Train Perf: 0.9113 | Eval Error: 0.0138 | Eval Perf: 0.7953
+# Dump network 85 Best MSE 0.013601782310918997 PCC 0.796574285842616
+[85, 100] Train Error: 0.0053 | Train Perf: 0.9137 | Eval Error: 0.0136 | Eval Perf: 0.7966
+# Dump network 86 Best MSE 0.013567651216270127 PCC 0.7985921440114374
+[86, 100] Train Error: 0.0052 | Train Perf: 0.9135 | Eval Error: 0.0136 | Eval Perf: 0.7986
+# Dump network 87 Best MSE 0.013559695153979036 PCC 0.8007846165992986
+[87, 100] Train Error: 0.0052 | Train Perf: 0.9146 | Eval Error: 0.0136 | Eval Perf: 0.8008
+[88, 100] Train Error: 0.0051 | Train Perf: 0.9155 | Eval Error: 0.0136 | Eval Perf: 0.8028
+# Dump network 89 Best MSE 0.01346330968819305 PCC 0.8043341888752261
+[89, 100] Train Error: 0.005 | Train Perf: 0.9176 | Eval Error: 0.0135 | Eval Perf: 0.8043
+[90, 100] Train Error: 0.005 | Train Perf: 0.917 | Eval Error: 0.0137 | Eval Perf: 0.8071
+[91, 100] Train Error: 0.0049 | Train Perf: 0.9196 | Eval Error: 0.0135 | Eval Perf: 0.8083
+[92, 100] Train Error: 0.0048 | Train Perf: 0.92 | Eval Error: 0.0136 | Eval Perf: 0.8103
+# Dump network 93 Best MSE 0.013351640203426178 PCC 0.8109890199138046
+[93, 100] Train Error: 0.0048 | Train Perf: 0.9222 | Eval Error: 0.0134 | Eval Perf: 0.811
+# Dump network 94 Best MSE 0.013263331690405982 PCC 0.8123008905169214
+[94, 100] Train Error: 0.0047 | Train Perf: 0.9224 | Eval Error: 0.0133 | Eval Perf: 0.8123
+# Dump network 95 Best MSE 0.01319761677252249 PCC 0.8136229556132848
+[95, 100] Train Error: 0.0047 | Train Perf: 0.9232 | Eval Error: 0.0132 | Eval Perf: 0.8136
+# Dump network 96 Best MSE 0.013076919866681323 PCC 0.8146674803980252
+[96, 100] Train Error: 0.0046 | Train Perf: 0.9247 | Eval Error: 0.0131 | Eval Perf: 0.8147
+# Dump network 97 Best MSE 0.012926069573479266 PCC 0.8155689335753665
+[97, 100] Train Error: 0.0046 | Train Perf: 0.9256 | Eval Error: 0.0129 | Eval Perf: 0.8156
+[98, 100] Train Error: 0.0045 | Train Perf: 0.9248 | Eval Error: 0.0131 | Eval Perf: 0.8176
+[99, 100] Train Error: 0.0045 | Train Perf: 0.9267 | Eval Error: 0.013 | Eval Perf: 0.8189
