@@ -5,7 +5,6 @@ import pickle
 import sys
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc, matthews_corrcoef
-from argparse import ArgumentParser
 
 # Utility functions you will re-use
 # Data-related utility functions
@@ -62,7 +61,7 @@ def plot_losses(train_losses, valid_losses, n_epochs):
     ax.plot(range(n_epochs), train_losses, label='Train loss', c='b')
     ax.plot(range(n_epochs), valid_losses, label='Valid loss', c='m')
     ax.legend()
-    plt.show()
+    fig.show()
 
 # Weights initialization function.
 # xavier initialization is technically more stable and preferred 
@@ -122,51 +121,44 @@ def load_ffnn_model(filepath, model=None):
     print(f"Model loaded successfully from {filepath}\nwith weights [ W1, W2 ] dimensions : {model.W1.shape, model.W2.shape}")
     return model
 
-# Argument parsing
-parser = ArgumentParser(description="FFNN train script")
-parser.add_argument("-train", action="store", dest="train_data", type=str, help="File with peptides (pep target)")
-parser.add_argument("-valid", action="store", dest="valid_data", type=str, help="File with peptides (pep target)")
-parser.add_argument("-nh", action="store", dest="n_hidden", type=int, default=16, help="Number of hidden units")
-parser.add_argument("-ne", action="store", dest="n_epochs", type=int, default=500, help="Number of epochs")
-parser.add_argument("-lr", action="store", dest="learning_rate", type=float, default=0.0001, help="Learning rate")
-parser.add_argument("-savepath", action="store", dest="savepath", type=str, default='./CustomName', help='Path to save the result. Used to save the model as {savepath}_ffnn_model.pkl Must not have an extension, ex : ./path/to/my_file')
-args = parser.parse_args()
-
 # Replace your data paths with the actual paths and desired alleles
-train_data = args.train_data
-valid_data = args.valid_data
-hidden_size = args.n_hidden
-n_epochs = args.n_epochs
-learning_rate = args.learning_rate
-savepath = args.savepath
-
-# Provide the correct path to your BLOSUM50 file
-blosum_file = '/Users/anaselyoussef/Desktop/algo/data/NNDeep/BLOSUM50'
+ALLELE = 'A0301' #A0201' #'A0301'
+DATAPATH = '/Users/anaselyoussef/Desktop/algo/data/NNDeep'
+blosum_file = f'{DATAPATH}/BLOSUM50'
+train_data = f'{DATAPATH}/{ALLELE}/train_BA'
+valid_data = f'{DATAPATH}/{ALLELE}/valid_BA'
+test_data = f'{DATAPATH}/{ALLELE}/test_BA'
 
 # Loading the peptides.
 train_raw = load_peptide_target(train_data)
 valid_raw = load_peptide_target(valid_data)
-
+test_raw = load_peptide_target(test_data)
+# 
 print('Preview of the dataframe ; Peptides have to be *encoded* to BLOSUM matrices')
 print(train_raw.head())
 
 print('N_datapoints:')
 print('Train data:\t', train_raw.shape[0])
 print('Valid data:\t', valid_raw.shape[0])
+print('Test data:\t', test_raw.shape[0])
 
 print('Maximum peptide length of each data set:')
 print('Train:\t',  train_raw['peptide'].apply(len).max())
 print('Valid:\t', valid_raw['peptide'].apply(len).max())
+print('Test:\t', test_raw['peptide'].apply(len).max())
 
-train_raw['len'] = train_raw['peptide'].apply(len)
+train_raw['len']=train_raw['peptide'].apply(len)
 print('Peptide length counts in the train data')
-print(train_raw.groupby('len').agg(count=('peptide', 'count')))
+print(train_raw.groupby('len').agg(count=('peptide','count')))
 
 max_pep_len = train_raw.peptide.apply(len).max()
 x_train_, y_train_ = encode_peptides(train_raw, blosum_file, max_pep_len)
 x_valid_, y_valid_ = encode_peptides(valid_raw, blosum_file, max_pep_len)
+x_test_, y_test_ = encode_peptides(test_raw, blosum_file, max_pep_len)
 # We now have matrices of shape (N_datapoints, max_pep_len, n_features)
 print(x_train_.shape)
+
+xavier_initialization_normal
 
 class SimpleFFNN:
     def __init__(self, input_size, hidden_size, output_size, initialization_function=xavier_initialization_normal):
@@ -260,17 +252,19 @@ def backward(net, x, y, z1, a1, z2, a2, learning_rate=0.01):
 # Reshaping the matrices so they're flat because feed-forward networks are "one-dimensional"
 x_train_ = x_train_.reshape(x_train_.shape[0], -1)
 x_valid_ = x_valid_.reshape(x_valid_.shape[0], -1)
+x_test_ = x_test_.reshape(x_test_.shape[0], -1)
 # Define sizes
 input_size = x_train_.shape[1] # also known as "n_features"
 # Model and training hyperparameters
-learning_rate = learning_rate
-hidden_units = hidden_size
-n_epochs = n_epochs
+learning_rate = 0.0001
+hidden_units = 50
+n_epochs = 500
 output_size = 1
 # Creating a model instance 
 # You can use either `xavier_initialization_normal` or `random_initialization_normal`
 # for the initialization_function argument of the class
-network = SimpleFFNN(input_size, hidden_units, output_size)
+network = SimpleFFNN(input_size, hidden_units, output_size)#, 
+                     #initialization_function=xavier_initialization_normal)
 
 
 # Training loops
@@ -288,9 +282,11 @@ for epoch in range(n_epochs):
     if (n_epochs >= 10 and epoch % math.ceil(0.05 * n_epochs) == 0) or epoch == 0 or epoch == n_epochs:
         print(f"Epoch {epoch}: \n\tTrain Loss:{train_loss:.4f}\tValid Loss:{valid_loss:.4f}")
 
+# Put your own savename to be used for the model and predictions
+savename='CustomFilename' 
 # saving the model to a file
 # Use the .pkl extension to save python pickled files
-save_ffnn_model(f'{savepath}_ffnn_model.pkl', model=network)
+save_ffnn_model(f'{savename}_ffnn_model.pkl', model=network)
 
 
 # plotting the losses 
@@ -299,25 +295,25 @@ plot_losses(train_losses, valid_losses, n_epochs)
 
 from sklearn.metrics import roc_auc_score, roc_curve
 # Reload the model and evaluate it
-reloaded_network = load_ffnn_model(f'{savepath}_ffnn_model.pkl', model=network)
+reloaded_network = load_ffnn_model(f'{savename}_ffnn_model.pkl', model=network)
 
 
 BINDER_THRESHOLD=0.426
 # Thresholding the targets
-y_valid_thresholded = (y_valid_>=BINDER_THRESHOLD).astype(int)
-_, _, _, valid_predictions_scores = reloaded_network.forward(x_valid_)
-valid_auc = roc_auc_score(y_valid_thresholded.squeeze(), valid_predictions_scores.squeeze())
-valid_fpr, valid_tpr, _ = roc_curve(y_valid_thresholded.squeeze(), valid_predictions_scores.squeeze())
+y_test_thresholded = (y_test_>=BINDER_THRESHOLD).astype(int)
+_, _, _, test_predictions_scores = reloaded_network.forward(x_test_)
+test_auc = roc_auc_score(y_test_thresholded.squeeze(), test_predictions_scores.squeeze())
+test_fpr, test_tpr, _ = roc_curve(y_test_thresholded.squeeze(), test_predictions_scores.squeeze())
 
 f,a = plt.subplots(1,1 , figsize=(9,9))
 
 a.plot([0,1],[0,1], ls=':', lw=0.5, label='Random prediction: AUC=0.500', c='k')
-a.plot(valid_fpr, valid_tpr, ls='--', lw=1, label=f'Neural Network: AUC={valid_auc:.3f}', c='b')
+a.plot(test_fpr, test_tpr, ls='--', lw=1, label=f'Neural Network: AUC={test_auc:.3f}', c='b')
 a.legend()
 
 # Saving the predictions
-valid_raw['predictions'] = valid_predictions_scores
-valid_raw[['peptide','predictions','target']].to_csv(f'{savepath}_ffnn_predictions.txt', index=False, header=False)
+test_raw['predictions'] = test_predictions_scores
+test_raw[['peptide','predictions','target']].to_csv(f'{savename}_ffnn_predictions.txt', index=False, header=False)
 
 # Training loops
 results={}
@@ -327,7 +323,7 @@ n_epochs = 250
 
 BINDER_THRESHOLD=0.426
 # Thresholding the targets
-y_valid_thresholded = (y_valid_>=BINDER_THRESHOLD).astype(int)
+y_test_thresholded = (y_test_>=BINDER_THRESHOLD).astype(int)
 
 f,a = plt.subplots(1,1, figsize=(9,9))
 a.plot([0,1],[0,1],ls=':', c='k', lw=0.5, label='Random prediction: AUC=0.500')
@@ -339,25 +335,44 @@ for learning_rate in [0.01, 0.0001]:
         model = SimpleFFNN(input_size, hidden_size, output_size)
         for _ in range(n_epochs):
             train_network(model, x_train_, y_train_, learning_rate)
-        _, _, _, valid_predictions_scores = model.forward(x_valid_)
-        valid_auc = roc_auc_score(y_valid_thresholded.squeeze(), valid_predictions_scores.squeeze())
-        valid_fpr, valid_tpr, _ = roc_curve(y_valid_thresholded.squeeze(), valid_predictions_scores.squeeze())
-        a.plot(valid_fpr, valid_tpr, ls='--', lw=1, label=f'Model {hidden_size} ; lr={learning_rate}: AUC={valid_auc:.3f}')
+        _, _, _, test_predictions_scores = model.forward(x_test_)
+        test_auc = roc_auc_score(y_test_thresholded.squeeze(), test_predictions_scores.squeeze())
+        test_fpr, test_tpr, _ = roc_curve(y_test_thresholded.squeeze(), test_predictions_scores.squeeze())
+        a.plot(test_fpr, test_tpr, ls='--', lw=1, label=f'Model {hidden_size} ; lr={learning_rate}: AUC={test_auc:.3f}')
 a.legend()
 plt.show()
 
-#THIS ONE WORKS PLZ PLZ PLZ PLZ COMMMIT COMMIT COMMIT
-# FOR TRAINING 
-# FOR TRAINING 
-# FOR TRAINING 
-# python FFNN_from_scratch.py -train /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/train_BA -valid /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/valid_BA -nh 16 -ne 500 -lr 0.0001 -savepath /Users/anaselyoussef/Desktop/algo/outputfiles/ANNtest1
-#THIS ONE WORKS PLZ PLZ PLZ PLZ COMMMIT COMMIT COMMIT
+
+# You need to make two scripts train_ffnn.py ; test_ffnn.py: 
+#     One for training and saving a model
+#     One for loading a saved model and predict
+
+from argparse import ArgumentParser
+
+# Train part
+parser = ArgumentParser(description="FFNN train script")
+parser.add_argument("-train", action="store", dest="train_data", type=str, help="File with peptides (pep target)")
+parser.add_argument("-valid", action="store", dest="valid_data", type=str, help="File with peptides (pep target)")
+parser.add_argument("-nh", action="store", dest="n_hidden", type=int, default=16, help="Number of hidden units")
+parser.add_argument("-ne", action="store", dest="n_epochs", type=int, default=500, help="Number of epochs")
+parser.add_argument("-lr", action="store", dest="learning_rate", type=float, default=0.0001, help="Learning rate")
+parser.add_argument("-savepath", action="store", dest="savepath", type=str, default='./CustomName', help='Path to save the result. Used to save the model as {savepath}_ffnn_model.pkl Must not have an extension, ex : ./path/to/my_file')
+args = parser.parse_args()
+train_data = args.train_data
+valid_data = args.valid_data
+hidden_size = args.n_hidden
+n_epochs = args.n_epochs
+learning_rate = args.learning_rate
+savepath = args.savepath
 
 
-# FOR TRAINING 
-# python FFNN_from_scratch.py -train /Users/anaselyoussef/Desktop/algo/data/ANN/A2403_training -valid /Users/anaselyoussef/Desktop/algo/data/ANN/A2403_evaluation -nh 16 -ne 500 -lr 0.0001 -savepath ./ANNtest1
-# python FFNN_from_scratch.py /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/train_BA -valid /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/valid_BA -nh 16 -ne 500 -lr 0.0001 -savepath /Users/anaselyoussef/Desktop/algo/outputfiles/ANNTEST1.txt
 
-# FOR TESTING
-# python FFNN_from_scratch.py -test /path/to/test_data.txt -nh 16 -savepath ./CustomName
-
+# test part
+parser = ArgumentParser(description="FFNN train script")
+parser.add_argument("-train", action="store", dest="test_data", type=str, help="File with peptides (pep target)")
+parser.add_argument("-nh", action="store", dest="n_hidden", type=int, default=16, help="Number of hidden units")
+parser.add_argument("-savepath", action="store", dest="savepath", type=str, default='./CustomName', help='Path to save the result. Used to load the model as {savepath}_ffnn_model.pkl and save the predictions as {savepath}_ffnn_predictions.txt ; Must not have an extension, ex : ./path/to/my_file')
+args = parser.parse_args()
+test_data = args.test_data
+hidden_size = args.n_hidden
+savepath = args.savepath
