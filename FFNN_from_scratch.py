@@ -355,4 +355,4 @@ plt.show()
 
 
 # For Training 
-# python FFNN_from_scratch.py -train /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/train_BA -valid /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/valid_BA -test /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/test_BA -nh 16 -ne 500 -lr 0.0001 -savepath /Users/anaselyoussef/Desktop/algo/outputfiles/ANNtest1
+# python FFNN_from_scratch.py -train /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/train_BA -valid /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/valid_BA -test /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/test_BA -nh 16 -ne 500 -lr 0.0001 -savepath /Users/anaselyoussef/Desktop/algo/outputfiles/ANNtest5
