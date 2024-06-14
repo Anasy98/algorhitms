@@ -117,4 +117,6 @@ print(f"Predictions saved to {output_file}")
 
 # For Testing
 
-# python python FFNN_Load_test.py -data /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/test_BA -params /Users/anaselyoussef/Desktop/algo/outputfiles/ANNtest1_ffnn_model.pkl -output /Users/anaselyoussef/Desktop/algo/outputfiles
+# python FFNN_Load_test.py -data /Users/anaselyoussef/Desktop/algo/data/NNDeep/A0301/test_BA -params /Users/anaselyoussef/Desktop/algo/outputfiles/ANNtest1_ffnn_model.pkl -output /Users/anaselyoussef/Desktop/algo/outputfiles
+
+# python FFNN_Load_test.py -data /Users/anaselyoussef/Desktop/algo/data/ANN/A0201_training -params /Users/anaselyoussef/Desktop/algo/outputfiles/ANNtest1_ffnn_model.pkl -output /Users/anaselyoussef/Desktop/algo/outputfiles
