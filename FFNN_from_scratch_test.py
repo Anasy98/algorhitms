@@ -178,9 +178,9 @@ class SimpleFFNN:
     def __init__(self, input_size, hidden_size, output_size, initialization_function=xavier_initialization_normal):
         # Initialize weights and biases with small random values
         # initialization_function(input_dim, output_dim) -> np.array of shape (input_dim, output_dim)
-        self.W1 = initialization_function(input_size, hidden_size)
+        self.W1 = initialization_function(input_size, hidden_size) * 0.1
         self.b1 = np.zeros(hidden_size)
-        self.W2 = initialization_function(hidden_size, output_size)
+        self.W2 = initialization_function(hidden_size, output_size) * 0.1
         self.b2 = np.zeros(output_size)
         print(self.W1.shape, self.b1.shape, self.W2.shape, self.b2.shape)
         
